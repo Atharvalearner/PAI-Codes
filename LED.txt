@@ -1,0 +1,48 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <pic18f4550.h>
+
+void delay(){
+    unsigned int i;
+    for (i=0;i<30000;i++);
+}
+// ALL LED OFF
+//void main(){
+//    unsigned int P=0x00;
+//    TRISB = 0x00;
+//    P = 0x00;
+//    PORTB = P;
+//}
+
+// ALL LED ON
+//void main(){
+//    unsigned int P=0x00;
+//    TRISCbits.RC0 = 0;
+//    TRISCbits.RC7 = 0;
+//    P = 0x01;
+//    PORTB = P;
+//}
+
+// LEFT SHIFT
+//void main(){
+//    unsigned int P=0x00,i;
+//    TRISB = 0x00;
+//    P = 0xFF;
+//    for (i=0;i<8;i++){
+//        PORTB = P;
+//        P = P<<1;
+//        delay();
+//    }
+//}
+
+//RIGHT SHIFT
+void main(){
+    unsigned int P=0x00,i;
+    TRISB = 0x00;
+    P = 0x80;
+    for(i=0;i<8;i++){
+        PORTB = P;
+        P = P>>1;
+        delay();
+    }
+}
